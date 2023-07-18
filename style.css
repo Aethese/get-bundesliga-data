@@ -48,7 +48,11 @@ footer {
 	margin-top: 50px;
 }
 
-.below{
+.below {
 	clear: right;
 	display: block;
+}
+
+.hidden {
+	visibility: hidden;
 }
