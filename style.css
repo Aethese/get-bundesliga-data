@@ -1,0 +1,50 @@
+body {
+	background-color: rgb(32 33 36);
+	font-family: 400 18px/1.7777777778 Segoe UI,system-ui,-apple-system,sans-serif;
+	color: white;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+	color: #0d6efd;
+}
+
+a:hover {
+    color: #66ddcc;
+}
+
+h1 {
+	text-align: center;
+}
+
+img {
+	height: 250px;
+	width: 250px;
+	-webkit-user-drag: none;
+	float: right;
+	margin-bottom: 50px;
+}
+
+h3 {
+	margin-top:20px;
+}
+
+h4 {
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+footer {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.below{
+	clear: right;
+	display: block;
+}

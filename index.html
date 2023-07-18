@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hey</title>
+		<link href='style.css' rel='stylesheet'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<h1>Get Bundesliga Data</h1>
+		<form>Select your team:
+			<select name='selectTeam' id='selectTeam'>
+				<option value='N/A'>None</option>
+				<option value='heid'>Heidenheim</option>
+				<option value='koln'>Köln</option>
+				<option value='unbe'>Union Berlin</option>
+				<option value='main'>Mainz</option>
+				<option value='leve'>Leverkusen</option>
+				<option value='dort'>Dortmund</option>
+				<option value='glad'>Gladbach</option>
+				<option value='fran'>Frankfurt</option>
+				<option value='augs'>Augsburg</option>
+				<option value='baye'>Bayern</option>
+				<option value='leip'>Leipzig</option>
+				<option value='frei'>Freiburg</option>
+				<option value='darm'>Darmstadt</option>
+				<option value='hoff'>Hoffenheim</option>
+				<option value='stut'>Stuttgart</option>
+				<option value='boch'>Bochum</option>
+				<option value='wolf'>Wolfsburg</option>
+				<option value='brem'>Bremen</option>
+			</select>
+		</form>
+		<h3 id='selected'>Your selected team is: None</h3>
+		<script type='text/javascript'>
+			document
+			.getElementById('selectTeam')
+			.addEventListener('change', function () {
+				'use scrict';
+				let sel = document.getElementById('selectTeam')
+				let value = sel.options[sel.selectedIndex].text;
+				let text = 'Your selected team is: ' + value;
+
+				document.getElementById('selected')
+				.textContent = text;
+			})
+		</script>
+	</body>
+</html>
