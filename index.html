@@ -34,22 +34,33 @@
 		<h3 id='selectedT'>Your selected team is: None</h3>
 
 		<!-- options added with js -->
-		<form style='margin-top:40px;'>Select which game you want to get info on:
+		<form style='margin-top:40px;' id='selectGameText' class='hidden'>Select which game you want to get info on:
 			<select name='selectGame', id='selectGame'></select>
 		</form>
-		<h3 id='selectedG'>Your selected game is: 1</h3>
+		<h3 id='selectedG' class='hidden'>Your selected game is: 1</h3>
 
 		<table class='hidden'>
-			<tr>
+			<tr> <!-- actual data -->
 				<th>Spielt</th>
 				<th>Datum</th>
 				<th>Gegner</th>
-				<th>Ergebnis</th>
-				<th style='text-align: center;'>G | U | V</th>
-				<th>Tore</th>
-				<th>Diff.</th>
-				<th>Punkte</th>
-				<th>Platz</th>
+				<th class='text-center'>Ergebnis</th>
+				<th class='text-center'>G | U | V</th>
+				<th class='text-center'>Tore</th>
+				<th class='text-center'>Diff.</th>
+				<th class='text-center'>Punkte</th>
+				<th style='text-align: right;'>Platz</th>
+			</tr>
+			<tr> <!-- actual data -->
+				<th>0</th>
+				<th>01/01/2023</th>
+				<th>Wolfsburg</th>
+				<th class='text-center'>0-0</th>
+				<th class='text-center'>0 | 0 | 0</th>
+				<th class='text-center'>0-0</th>
+				<th class='text-center'>+0</th>
+				<th class='text-center'>0</th>
+				<th style='text-align: right;'>0</th>
 			</tr>
 		</table>
 
@@ -64,26 +75,33 @@
 			.getElementById('selectTeam')
 			.addEventListener('change', function () {
 				'use scrict';
-				let sel = document.getElementById('selectTeam')
+				let sel = document.getElementById('selectTeam');
 				let value = sel.options[sel.selectedIndex].text;
 				let text = 'Your selected team is: ' + value;
 
 				document.getElementById('selectedT')
 				.textContent = text;
-			})
+
+				// show the 'your selected game' text
+				document.getElementById('selectGameText').classList.remove('hidden'); // text
+				document.getElementById('selectGameText').classList.add('show');
+				document.getElementById('selectedG').classList.remove('hidden'); // info text
+				document.getElementById('selectedG').classList.add('show');
+
+			});
 
 			// change for 'Your selected game is'
 			document
 			.getElementById('selectGame')
 			.addEventListener('change', function () {
 				'use scrict';
-				let sel = document.getElementById('selectGame')
+				let sel = document.getElementById('selectGame');
 				let value = sel.options[sel.selectedIndex].text;
 				let text = 'Your selected game is: ' + value;
 
 				document.getElementById('selectedG')
 				.textContent = text;	
-			})
+			});
 		</script>
 
 		<!-- handles adding the options for selecting which game -->

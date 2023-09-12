@@ -65,7 +65,11 @@ td, th {
 }
 
 tr:nth-child(even) {
-	background-color: #dddddd;
+	background-color: #dddddd3a;
+}
+
+.text-center {
+	text-align: center;
 }
 
 .below {
