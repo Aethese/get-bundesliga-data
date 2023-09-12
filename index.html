@@ -3,7 +3,7 @@
 	<head>
 		<title>Get Bundesliga Data</title>
 		<link href='style.css' rel='stylesheet'>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js'></script>
 	</head>
 	<body>
 		<h1>Get Bundesliga 1 Data (2023)</h1>
@@ -39,8 +39,26 @@
 		</form>
 		<h3 id='selectedG'>Your selected game is: 1</h3>
 
+		<table class='hidden'>
+			<tr>
+				<th>Spielt</th>
+				<th>Datum</th>
+				<th>Gegner</th>
+				<th>Ergebnis</th>
+				<th style='text-align: center;'>G | U | V</th>
+				<th>Tore</th>
+				<th>Diff.</th>
+				<th>Punkte</th>
+				<th>Platz</th>
+			</tr>
+		</table>
+
 		<!-- handles changing text below forms -->
 		<script type='text/javascript'>
+			// TODO: show 'selected game is' after selecting
+			// your team. after selecting the game, then show the
+			// table after querying data
+
 			// change for 'Your selected team is'
 			document
 			.getElementById('selectTeam')
@@ -54,7 +72,7 @@
 				.textContent = text;
 			})
 
-			// change for 'Your selected team is'
+			// change for 'Your selected game is'
 			document
 			.getElementById('selectGame')
 			.addEventListener('change', function () {
@@ -64,7 +82,7 @@
 				let text = 'Your selected game is: ' + value;
 
 				document.getElementById('selectedG')
-				.textContent = text;
+				.textContent = text;	
 			})
 		</script>
 

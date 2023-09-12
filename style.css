@@ -5,7 +5,7 @@ body {
 	*/
 	font-family: Arial, Helvetica, sans-serif;
 	color: white;
-	margin-left: 50px;
+	margin-left: 100px;
 	margin-right: 50px;
 }
 
@@ -23,6 +23,7 @@ a:hover {
 
 h1 {
 	text-align: center;
+	font-size: xx-large;
 	margin-bottom: 30px;
 }
 
@@ -48,6 +49,25 @@ footer {
 	margin-top: 50px;
 }
 
+form {
+	font-size: larger;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
 .below {
 	clear: right;
 	display: block;
@@ -55,4 +75,8 @@ footer {
 
 .hidden {
 	visibility: hidden;
+}
+
+.show {
+	visibility: visible;
 }
