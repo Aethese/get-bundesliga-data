@@ -11,24 +11,24 @@
 		<form>Select your team:
 			<select name='selectTeam' id='selectTeam'>
 				<option value='N/A'>None</option>
-				<option value='heid'>Heidenheim</option>
-				<option value='koln'>Köln</option>
-				<option value='unbe'>Union Berlin</option>
-				<option value='main'>Mainz</option>
-				<option value='leve'>Leverkusen</option>
-				<option value='dort'>Dortmund</option>
-				<option value='glad'>Gladbach</option>
-				<option value='fran'>Frankfurt</option>
 				<option value='augs'>Augsburg</option>
 				<option value='baye'>Bayern</option>
-				<option value='leip'>Leipzig</option>
-				<option value='frei'>Freiburg</option>
-				<option value='darm'>Darmstadt</option>
-				<option value='hoff'>Hoffenheim</option>
-				<option value='stut'>Stuttgart</option>
 				<option value='boch'>Bochum</option>
-				<option value='wolf'>Wolfsburg</option>
 				<option value='brem'>Bremen</option>
+				<option value='darm'>Darmstadt</option>
+				<option value='dort'>Dortmund</option>
+				<option value='fran'>Frankfurt</option>
+				<option value='frei'>Freiburg</option>
+				<option value='glad'>Gladbach</option>
+				<option value='heid'>Heidenheim</option>
+				<option value='hoff'>Hoffenheim</option>
+				<option value='koln'>Köln</option>
+				<option value='leip'>Leipzig</option>
+				<option value='leve'>Leverkusen</option>
+				<option value='main'>Mainz</option>
+				<option value='stut'>Stuttgart</option>
+				<option value='unbe'>Union Berlin</option>
+				<option value='wolf'>Wolfsburg</option>
 			</select>
 		</form>
 		<h3 id='selectedT'>Your selected team is: None</h3>
@@ -37,9 +37,9 @@
 		<form style='margin-top:40px;' id='selectGameText' class='hidden'>Select which game you want to get info on:
 			<select name='selectGame', id='selectGame'></select>
 		</form>
-		<h3 id='selectedG' class='hidden'>Your selected game is: 1</h3>
+		<h3 id='selectedG' class='hidden'>Your selected game is: 0</h3>
 
-		<table class='hidden'>
+		<table id='dataTable' class='hidden'>
 			<tr> <!-- actual data -->
 				<th>Spielt</th>
 				<th>Datum</th>
@@ -75,6 +75,9 @@
 			.getElementById('selectTeam')
 			.addEventListener('change', function () {
 				'use scrict';
+				// first change the 'your selected team' text to match
+				// what team they picked. after that show the text that
+				// allows them to pick their team
 				let sel = document.getElementById('selectTeam');
 				let value = sel.options[sel.selectedIndex].text;
 				let text = 'Your selected team is: ' + value;
@@ -100,7 +103,10 @@
 				let text = 'Your selected game is: ' + value;
 
 				document.getElementById('selectedG')
-				.textContent = text;	
+				.textContent = text;
+				// do same as select team, just show the table instead
+				document.getElementById('dataTable').classList.remove('hidden');
+				document.getElementById('dataTable').classList.add('show');
 			});
 		</script>
 
@@ -108,7 +114,7 @@
 		<!--             the user would like to view             -->
 		<script type='text/javascript'>
 			// Add amount of available games to the selectGame list
-			let min = 1;
+			let min = 0;
 			let max = 34;
 			let element = document.getElementById('selectGame')
 
@@ -120,5 +126,6 @@
 				element.appendChild(option);
 			}
 		</script>
+		<script src='get_data.js'></script>
 	</body>
 </html>
