@@ -80,7 +80,3 @@ tr:nth-child(even) {
 .hidden {
 	visibility: hidden;
 }
-
-.show {
-	visibility: visible;
-}

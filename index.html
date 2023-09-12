@@ -40,7 +40,7 @@
 		<h3 id='selectedG' class='hidden'>Your selected game is: 0</h3>
 
 		<table id='dataTable' class='hidden'>
-			<tr> <!-- actual data -->
+			<tr> <!-- header -->
 				<th>Spielt</th>
 				<th>Datum</th>
 				<th>Gegner</th>
@@ -66,9 +66,11 @@
 
 		<!-- handles changing text below forms -->
 		<script type='text/javascript'>
-			// TODO: show 'selected game is' after selecting
-			// your team. after selecting the game, then show the
-			// table after querying data
+			/*
+				sorry for the mess. this script handles changing text
+				based on user input, showing text after user selects their
+				team, and handles all of the table changes :p
+			*/
 
 			// change for 'Your selected team is'
 			document
@@ -87,9 +89,7 @@
 
 				// show the 'your selected game' text
 				document.getElementById('selectGameText').classList.remove('hidden'); // text
-				document.getElementById('selectGameText').classList.add('show');
 				document.getElementById('selectedG').classList.remove('hidden'); // info text
-				document.getElementById('selectedG').classList.add('show');
 
 			});
 
@@ -98,20 +98,24 @@
 			.getElementById('selectGame')
 			.addEventListener('change', function () {
 				'use scrict';
+				// Order:
+				//	First: Update 'selected game is' text
+				//	Second: Update the table by calling updateTable() in get_data
 				let sel = document.getElementById('selectGame');
 				let value = sel.options[sel.selectedIndex].text;
 				let text = 'Your selected game is: ' + value;
 
 				document.getElementById('selectedG')
 				.textContent = text;
-				// do same as select team, just show the table instead
-				document.getElementById('dataTable').classList.remove('hidden');
-				document.getElementById('dataTable').classList.add('show');
+
+				// update the table
+				let team = document.getElementById('selectTeam').options[sel.selectedIndex].text;
+				let game = parseInt(value);
+				updateTable(team, game);
 			});
 		</script>
 
-		<!-- handles adding the options for selecting which game -->
-		<!--             the user would like to view             -->
+		<!-- adds all of the options for 'selectedG' -->
 		<script type='text/javascript'>
 			// Add amount of available games to the selectGame list
 			let min = 0;
