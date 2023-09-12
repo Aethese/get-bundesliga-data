@@ -6,7 +6,7 @@
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js'></script>
 	</head>
 	<body>
-		<h1>Get Bundesliga 1 Data (2023)</h1>
+		<h1>Get Bundesliga 1 Data (Saison 2023/2024)</h1>
 
 		<form>Select your team:
 			<select name='selectTeam' id='selectTeam'>
@@ -42,7 +42,7 @@
 		<table id='dataTable' class='hidden'>
 			<tr> <!-- header -->
 				<th>Spielt</th>
-				<th>Datum</th>
+				<th>Datum (JAHR/MM/TT)</th>
 				<th>Gegner</th>
 				<th class='text-center'>Ergebnis</th>
 				<th class='text-center'>G | U | V</th>
@@ -52,15 +52,15 @@
 				<th style='text-align: right;'>Platz</th>
 			</tr>
 			<tr> <!-- actual data -->
-				<th>0</th>
-				<th>01/01/2023</th>
-				<th>Wolfsburg</th>
-				<th class='text-center'>0-0</th>
-				<th class='text-center'>0 | 0 | 0</th>
-				<th class='text-center'>0-0</th>
-				<th class='text-center'>+0</th>
-				<th class='text-center'>0</th>
-				<th style='text-align: right;'>0</th>
+				<th id='spielt'>0</th>
+				<th id='datum'>2023/01/01</th>
+				<th id='gegner'>Wolfsburg</th>
+				<th id='ergebnis' class='text-center'>0-0</th>
+				<th id='guv' class='text-center'>0 | 0 | 0</th>
+				<th id='tore' class='text-center'>0-0</th>
+				<th id='diff' class='text-center'>+0</th>
+				<th id='punkte' class='text-center'>0</th>
+				<th id='platz' style='text-align: right;'>0</th>
 			</tr>
 		</table>
 
@@ -89,7 +89,7 @@
 
 				// show the 'your selected game' text
 				document.getElementById('selectGameText').classList.remove('hidden'); // text
-				document.getElementById('selectedG').classList.remove('hidden'); // info text
+				document.getElementById('selectedG').classList.remove('hidden');      // info text
 
 			});
 
@@ -109,7 +109,8 @@
 				.textContent = text;
 
 				// update the table
-				let team = document.getElementById('selectTeam').options[sel.selectedIndex].text;
+				let selectTeam = document.getElementById('selectTeam');
+				let team = selectTeam.options[selectTeam.selectedIndex].text;
 				let game = parseInt(value);
 				updateTable(team, game);
 			});

@@ -11,6 +11,23 @@ function updateTable(team, game) {
 	 */
 	let data = getData(team, game);
 	let table = document.getElementById('dataTable');
+	table.classList.remove('hidden');
+
+	// don't know a better way to do this at this
+	// moment in time :)
+	let spielt    = document.getElementById('spielt');
+	let datum     = document.getElementById('datum');
+	let gegner    = document.getElementById('gegner');
+	let eregebnis = document.getElementById('eregebnis');
+	let guv       = document.getElementById('guv');
+	let tore      = document.getElementById('tore');
+	let diff      = document.getElementById('diff');
+	let punkte    = document.getElementById('punkte');
+	let platz     = document.getElementById('platz');
+	let itemList = [
+		spielt, datum, gegner, eregebnis,
+		guv, tore, diff, punkte, platz
+	];
 
 	return 0;
 };
@@ -24,6 +41,6 @@ function getData(team, game) {
 	 * 
 	 * @returns {Dictionary} data full data that we're working with
 	 */
-
+	let fullData = API_URL;
 	return 0;
 };
