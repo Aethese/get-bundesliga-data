@@ -56,34 +56,3 @@ async function updateTable(team, game)
 
 	return 0;
 }
-
-function getData(team)
-{
-	/**
-	 * @description gets all of the data needed in updateTable()
-	 * 
-	 * @param {String}  team The team we're looking up
-	 * @param {Integer} game What game we're going to look up
-	 * 
-	 * @returns {Array} data full data that we're working with
-	 */
-	let URL = API_URL + '/' + team;
-	let jsonData;
-
-	fetch(URL, {
-		headers: {
-			'Accept': 'application/json'
-		}
-	}).then(response => response.json())
-	  .then(data => {
-		jsonData = data;
-	});
-	return jsonData;
-	/* end here
-	if (data[game-1]['team1']['teamName'] === team)
-	{
-		console.log('Our team')
-	} else {
-		console.log('Not our team')
-	}*/
-}
