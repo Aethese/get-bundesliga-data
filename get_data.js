@@ -52,7 +52,7 @@ async function updateTable(team, game)
 	for (let i = 0; i <= itemList.length; i++)
 	{
 		//
-	};
+	}
 
 	return 0;
 }
