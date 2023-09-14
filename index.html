@@ -84,8 +84,7 @@
 				let value = sel.options[sel.selectedIndex].text;
 				let text = 'Your selected team is: ' + value;
 
-				document.getElementById('selectedT')
-				.textContent = text;
+				document.getElementById('selectedT').textContent = text;
 
 				// show the 'your selected game' text
 				document.getElementById('selectGameText').classList.remove('hidden'); // text
@@ -105,8 +104,7 @@
 				let value = sel.options[sel.selectedIndex].text;
 				let text = 'Your selected game is: ' + value;
 
-				document.getElementById('selectedG')
-				.textContent = text;
+				document.getElementById('selectedG').textContent = text;
 
 				// update the table
 				let selectTeam = document.getElementById('selectTeam');
@@ -121,15 +119,15 @@
 			// Add amount of available games to the selectGame list
 			let min = 0;
 			let max = 34;
-			let element = document.getElementById('selectGame')
+			let element = document.getElementById('selectGame');
 
 			for (let i = min; i<=max; i++)
 			{
-				let option = document.createElement('option')
+				let option = document.createElement('option');
 				option.value = i;
 				option.text = i;
 				element.appendChild(option);
-			}
+			};
 		</script>
 		<script src='get_data.js'></script>
 	</body>
