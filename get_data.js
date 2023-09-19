@@ -81,6 +81,7 @@ async function getData(team, game)
 
 	// order is the same as it is on the table
 
+	// only get the simplified date
 	let date = data[game-1]['matchDateTime'].substring(0, 10);
 
 	let team1 = true; // if we're team 1
@@ -125,15 +126,15 @@ async function updateTable(team, game)
 
 	// don't know a better way to do this at this
 	// moment in time :)
-	let spielt    = document.getElementById('spielt');
-	let datum     = document.getElementById('datum');
-	let gegner    = document.getElementById('gegner');
-	let ergebnis  = document.getElementById('ergebnis');
-	let guv       = document.getElementById('guv');
-	let tore      = document.getElementById('tore');
-	let diff      = document.getElementById('diff');
-	let punkte    = document.getElementById('punkte');
-	let platz     = document.getElementById('platz');
+	let spielt   = document.getElementById('spielt');
+	let datum    = document.getElementById('datum');
+	let gegner   = document.getElementById('gegner');
+	let ergebnis = document.getElementById('ergebnis');
+	let guv      = document.getElementById('guv');
+	let tore     = document.getElementById('tore');
+	let diff     = document.getElementById('diff');
+	let punkte   = document.getElementById('punkte');
+	let platz    = document.getElementById('platz');
 
 	let itemList = [
 		spielt, datum, gegner, ergebnis,
