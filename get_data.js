@@ -122,7 +122,8 @@ async function updateTable(team, game)
 	 * @param {Integer} game  What game we're going to look up
 	 */
 
-	let table = document.getElementById('dataTable');
+	let table     = document.getElementById('dataTable');
+	let tableText = document.getElementById('tableText');
 
 	// don't know a better way to do this at this
 	// moment in time :)
@@ -149,5 +150,6 @@ async function updateTable(team, game)
 	}
 
 	table.classList.remove('hidden');
+	tableText.classList.remove('hidden');
 	return 0;
 }
