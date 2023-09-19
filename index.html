@@ -107,6 +107,8 @@
 				document.getElementById('selectedG').textContent = text;
 
 				// update the table
+				let table = document.getElementById('dataTable');
+				table.classList.add('hidden');
 				let selectTeam = document.getElementById('selectTeam');
 				let team = selectTeam.options[selectTeam.selectedIndex].text;
 				let game = parseInt(value);
