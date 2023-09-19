@@ -1,17 +1,63 @@
-let YEAR = '2023'
-let API_URL = 'https://api.openligadb.de/getmatchdata/bl1/' + YEAR
+let YEAR = '2023';
+let API_URL = 'https://api.openligadb.de/getmatchdata/bl1/' + YEAR;
 
-async function getTeamData(team)
+async function getBLTable(team)
 {
 	/**
-	 * @descriptions gets data about a specific team
+	 * @description Gets details about overall performance for a team
 	 * 
 	 * @param {String} team The team we're looking up
 	 * 
-	 * @returns {Array} Array full of data we need
+	 * @returns {Array} 
 	 */
 
-	return 0;
+	// the shortName in data is just BVB for dortmund
+	if (team === 'Dortmund')
+	{
+		team = 'BVB';
+	}
+
+	const URL = 'https://api.openligadb.de/getbltable/bl1/' + YEAR;
+	const response = await fetch(URL, {
+		headers: {
+			'Accept': 'application/json'
+		}
+	});
+	let data = await response.json();
+
+	let finalData;
+	let platz;
+	for (let i = 0; i < data.length; i++)
+	{
+		if (data[i]['shortName'] === team)
+		{
+			finalData = data[i];
+			platz = i + 1;
+			break;
+		}
+	}
+
+	let wins = finalData['won'];
+	let ties = finalData['draw'];
+	let losses = finalData['lost'];
+	let GUV = wins+' | '+ties+' | '+losses;
+
+	let scored = finalData['goals'];
+	let scoredOn = finalData['opponentGoals'];
+	let tore = scored+'-'+scoredOn;
+
+	let diff = finalData['goalDiff'];
+	if (diff >= 0)
+	{
+		diff = '+'+diff;
+	}
+
+	let punkte = finalData['points'];
+
+	gatheredData = [
+		GUV, tore, diff, punkte, platz
+	];
+	return gatheredData;
 }
 
 async function getData(team, game)
@@ -19,8 +65,8 @@ async function getData(team, game)
 	/**
 	 * @description gets all of the data needed in updateTable()
 	 * 
-	 * @param {String}  team  The team we're looking up
-	 * @param {Integer} game  What game we're going to look up
+	 * @param {String}  team The team we're looking up
+	 * @param {Integer} game What game we're going to look up
 	 * 
 	 * @returns {Array} data full data that we're working with
 	 */
@@ -56,14 +102,12 @@ async function getData(team, game)
 		score = score2+'-'+score1;
 	}
 
-	/*
-	The rest of the data we need to gather can't be gathered
-	from openligadb.de i need a new source to get specific
-	info on teams from
-	*/
+	let BLTable = await getBLTable(team);
 
 	finalInfo = [
-		game, date, Team, score
+		game, date, Team, score,
+		BLTable[0], BLTable[1], BLTable[2],
+		BLTable[3], BLTable[4],
 	];
 	return finalInfo;
 }
@@ -76,31 +120,33 @@ async function updateTable(team, game)
 	 * @param {String}  team  The team we're looking up
 	 * @param {Integer} game  What game we're going to look up
 	 */
-	let data = await getData(team, game);
-	console.log(data);
+
 	let table = document.getElementById('dataTable');
-	table.classList.remove('hidden');
 
 	// don't know a better way to do this at this
 	// moment in time :)
 	let spielt    = document.getElementById('spielt');
 	let datum     = document.getElementById('datum');
 	let gegner    = document.getElementById('gegner');
-	let eregebnis = document.getElementById('eregebnis');
+	let ergebnis  = document.getElementById('ergebnis');
 	let guv       = document.getElementById('guv');
 	let tore      = document.getElementById('tore');
 	let diff      = document.getElementById('diff');
 	let punkte    = document.getElementById('punkte');
 	let platz     = document.getElementById('platz');
-	let itemList  = [
-		spielt, datum, gegner, eregebnis,
+
+	let itemList = [
+		spielt, datum, gegner, ergebnis,
 		guv, tore, diff, punkte, platz
 	];
 
-	for (let i = 0; i <= itemList.length; i++)
+	let data = await getData(team, game);
+
+	for (let i = 0; i < itemList.length; i++)
 	{
-		//
+		itemList[i].textContent = String(data[i]);
 	}
 
+	table.classList.remove('hidden');
 	return 0;
 }
