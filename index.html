@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Get Bundesliga Data</title>
+		<title>Erhalte die Bundesliga 1 Daten</title>
 		<link rel='icon' type='image/x-icon' href='favicon.ico'>
 		<link href='style.css' rel='stylesheet'>
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js'></script>
 	</head>
 	<body>
-		<h1>Get Bundesliga 1 Data (Saison 2023/2024)</h1>
+		<h1>Erhalte die Bundesliga 1 Daten (Saison 23/24)</h1>
 
-		<form>Select your team:
+		<form>Wähle dein Team:
 			<select name='selectTeam' id='selectTeam'>
 				<option>None</option>
 				<option>Augsburg</option>
@@ -32,13 +32,13 @@
 				<option>Wolfsburg</option>
 			</select>
 		</form>
-		<h3 id='selectedT'>Your selected team is: None</h3>
+		<h3 id='selectedT'>Deine gewähltes Team ist: keine</h3>
 
 		<!-- options added with js -->
-		<form style='margin-top:40px;' id='selectGameText' class='hidden'>Select which game you want to get info on:
+		<form style='margin-top:40px;' id='selectGameText' class='hidden'>Wähle von welchem Spiel du informationen erhalten möchtest:
 			<select name='selectGame', id='selectGame'></select>
 		</form>
-		<h3 id='selectedG' class='hidden'>Your selected game is: 0</h3>
+		<h3 id='selectedG' class='hidden'>Dein gewähltes Team ist: 0</h3>
 
 		<table id='dataTable' class='hidden'>
 			<tr> <!-- header -->
@@ -64,7 +64,7 @@
 				<th id='platz' style='text-align: right;'>0</th>
 			</tr>
 		</table>
-		<h4 id='tableText' class='hidden'>NOTE: All data starting at GUV is ALWAYS up-to-date! You can't have it change for past games!</h4>
+		<h4 id='tableText' class='hidden'>NOTIZ: Alle Daten starten bei GUV und ist immer auf dem neusten Stand! du kannst dies nicht für vergangene Spiele ändern!</h4>
 
 
 		<!-- handles changing text below forms -->

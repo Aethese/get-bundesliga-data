@@ -1,2 +1,2 @@
-# Get Bundesliga 1 Data
-Get data on your Bundesliga 1 team including data for specific games.
+# Erhalte Bundesliga 1 informationen
+Erhalte informationen über dein Bundesliga 1 Team, inklusive informationen über spezielle/spezifische spiele
