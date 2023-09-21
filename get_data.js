@@ -85,11 +85,11 @@ async function getData(team, game)
 	let date = data[game-1]['matchDateTime'].substring(0, 10);
 
 	let team1 = true; // if we're team 1
-	let Team = data[game-1]['team1']['shortName'];
-	if (Team !== team) // if first team is diff then what we're looking for
+	let enemyTeamName = data[game-1]['team2']['shortName'];
+	if (enemyTeamName === team) // if first team is diff then what we're looking for
 	{
 		team1 = false;
-		Team = data[game-1]['team2']['shortName'];
+		enemyTeamName = data[game-1]['team1']['shortName'];
 	}
 
 	let matchResults = data[game-1]['matchResults'][1];
@@ -106,7 +106,7 @@ async function getData(team, game)
 	let BLTable = await getBLTable(team);
 
 	finalInfo = [
-		game, date, Team, score,
+		game, date, enemyTeamName, score,
 		BLTable[0], BLTable[1], BLTable[2],
 		BLTable[3], BLTable[4],
 	];
