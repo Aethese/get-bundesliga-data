@@ -4,7 +4,7 @@
 	team, and handles all of the table changes :p
 */
 
-// change for 'Your selected team is'
+// change for 'Deine gewähltes Team ist'
 document.getElementById('selectTeam')
 .addEventListener('change', function () {
 	'use scrict';
@@ -13,7 +13,7 @@ document.getElementById('selectTeam')
 	// allows them to pick their team
 	let sel = document.getElementById('selectTeam');
 	let value = sel.options[sel.selectedIndex].text;
-	let text = 'Your selected team is: ' + value;
+	let text = 'Deine gewähltes Team ist: ' + value;
 
 	document.getElementById('selectedT').textContent = text;
 
@@ -23,7 +23,7 @@ document.getElementById('selectTeam')
 
 });
 
-// change for 'Your selected game is'
+// change for 'Dein gewähltes Spiel ist'
 document.getElementById('selectGame')
 .addEventListener('change', function () {
 	'use scrict';
@@ -32,7 +32,7 @@ document.getElementById('selectGame')
 	//	Second: Update the table by calling updateTable() in get_data
 	let sel = document.getElementById('selectGame');
 	let value = sel.options[sel.selectedIndex].text;
-	let text = 'Your selected game is: ' + value;
+	let text = 'Dein gewähltes Spiel ist: ' + value;
 
 	document.getElementById('selectedG').textContent = text;
 
