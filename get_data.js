@@ -5,13 +5,15 @@ async function getBLTable(team)
 {
 	/**
 	 * @description Gets details about overall performance for a team
+	 * NOTE: the data is ALWAYS up-to-date!
 	 * 
 	 * @param {String} team The team we're looking up
 	 * 
-	 * @returns {Array} 
+	 * @returns {Array} Returns a list containing GUV, tore,
+	 * diff, punkte, platz
 	 */
 
-	// the shortName in data is just BVB for dortmund
+	// the shortName in data is just 'BVB' for 'dortmund'
 	if (team === 'Dortmund')
 	{
 		team = 'BVB';
@@ -68,7 +70,7 @@ async function getData(team, game)
 	 * @param {String}  team The team we're looking up
 	 * @param {Integer} game What game we're going to look up
 	 * 
-	 * @returns {Array} data full data that we're working with
+	 * @returns {Array} array full data that we're working with
 	 */
 
 	const URL = API_URL + '/' + team;
