@@ -46,7 +46,7 @@ async function getBLTable(team)
 
 	let scored = finalData['goals'];
 	let scoredOn = finalData['opponentGoals'];
-	let tore = scored+'-'+scoredOn;
+	let tore = scored+':'+scoredOn;
 
 	let diff = finalData['goalDiff'];
 	if (diff >= 0)
