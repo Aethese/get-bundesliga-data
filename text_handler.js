@@ -20,7 +20,6 @@ document.getElementById('selectTeam')
 	// show the 'your selected game' text
 	document.getElementById('selectGameText').classList.remove('hidden'); // text
 	document.getElementById('selectedG').classList.remove('hidden');      // info text
-
 });
 
 // change for 'Dein gewähltes Spiel ist'
