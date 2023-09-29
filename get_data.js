@@ -94,6 +94,11 @@ async function getData(team, game)
 		enemyTeamName = data[game-1]['team1']['shortName'];
 	}
 
+	if (enemyTeamName === 'BVB')
+	{
+		enemyTeamName = 'Dortmund';
+	}
+
 	let matchResults = data[game-1]['matchResults'][1];
 	let score;
 	let score1 = matchResults['pointsTeam1'];
