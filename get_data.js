@@ -81,7 +81,7 @@ async function getData(team, game)
 	});
 	let data = await response.json();
 
-	// order is the same as it is on the table
+	// order is the same as it is on the table!! \\
 
 	// only get the simplified date
 	let date = data[game-1]['matchDateTime'].substring(0, 10);
@@ -99,6 +99,15 @@ async function getData(team, game)
 		enemyTeamName = 'Dortmund';
 	}
 
+	// check if we're home or away
+	let ha;
+	if (team1)
+	{
+		ha = 'H';
+	} else {
+		ha = 'A';
+	}
+
 	let matchResults = data[game-1]['matchResults'][1];
 	let score;
 	let score1 = matchResults['pointsTeam1'];
@@ -113,9 +122,9 @@ async function getData(team, game)
 	let BLTable = await getBLTable(team);
 
 	finalInfo = [
-		game, date, enemyTeamName, score,
-		BLTable[0], BLTable[1], BLTable[2],
-		BLTable[3], BLTable[4],
+		ha, game, date, enemyTeamName,
+		score, BLTable[0], BLTable[1],
+		BLTable[2], BLTable[3], BLTable[4],
 	];
 	return finalInfo;
 }
@@ -134,6 +143,7 @@ async function updateTable(team, game)
 
 	// don't know a better way to do this at this
 	// moment in time :)
+	let ha       = document.getElementById('ha');
 	let spielt   = document.getElementById('spielt');
 	let datum    = document.getElementById('datum');
 	let gegner   = document.getElementById('gegner');
@@ -145,7 +155,7 @@ async function updateTable(team, game)
 	let platz    = document.getElementById('platz');
 
 	let itemList = [
-		spielt, datum, gegner, ergebnis,
+		ha, spielt, datum, gegner, ergebnis,
 		guv, tore, diff, punkte, platz
 	];
 
